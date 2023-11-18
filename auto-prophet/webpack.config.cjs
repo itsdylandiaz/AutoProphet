@@ -10,12 +10,13 @@ const stylesHandler = 'style-loader';
 
 const config = {
     entry: {
-        main: './src/main.js',
-        react: './src/react.js'
+        main: './src/main.cjs',
+        react: './src/react.jsx'
     },
-    target: 'electron-main',
+    target: 'electron-renderer',
     output: {
         path: path.resolve(__dirname, 'public'),
+        libraryTarget: "commonjs"
     },
     devServer: {
         open: true,
@@ -26,10 +27,11 @@ const config = {
             template: './src/index.html',
         }),
     ],
+    externals: ['aws-sdk','mock-aws-s3','nock','npm'],
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/i,
+                test: /\.(js|jsx|cjs|mjs)$/i,
                 loader: 'babel-loader',
             },
             {
@@ -40,6 +42,14 @@ const config = {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
                 type: 'asset',
             },
+            {
+                test: /\.html$/i,
+                loader: 'html-loader'
+            },
+            {
+                test: /\.cs$/i,
+                loader: 'ignore-loader'
+            }
         ],
     },
     resolve: {

@@ -9,16 +9,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/main.js":
-/*!*********************!*\
-  !*** ./src/main.js ***!
-  \*********************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-eval("// No Warranty\n// This software is provided \"as is\" without any warranty of any kind, express or implied. This includes, but is not limited to, the warranties of merchantability, fitness for a particular purpose, and non-infringement.\n//\n// Disclaimer of Liability\n// The authors of this software disclaim all liability for any damages, including incidental, consequential, special, or indirect damages, arising from the use or inability to use this software.\n\nconst {\n  app,\n  BrowserWindow\n} = __webpack_require__(/*! electron */ \"electron\");\nconst createWindow = () => {\n  const win = new BrowserWindow({\n    width: 800,\n    height: 600\n  });\n  win.loadFile('./public/index.html');\n};\napp.whenReady().then(() => {\n  createWindow();\n  app.on('activate', () => {\n    if (BrowserWindow.getAllWindows().length === 0) createWindow();\n  });\n});\napp.on('window-all-closed', () => {\n  if (process.platform !== 'darwin') app.quit();\n});\n\n//# sourceURL=webpack://auto-prophet/./src/main.js?");
-
-/***/ }),
-
 /***/ "electron":
 /*!***************************!*\
   !*** external "electron" ***!
@@ -27,6 +17,16 @@ eval("// No Warranty\n// This software is provided \"as is\" without any warrant
 
 "use strict";
 module.exports = require("electron");
+
+/***/ }),
+
+/***/ "./src/main.cjs":
+/*!**********************!*\
+  !*** ./src/main.cjs ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("// No Warranty\n// This software is provided \"as is\" without any warranty of any kind, express or implied. This includes, but is not limited to, the warranties of merchantability, fitness for a particular purpose, and non-infringement.\n//\n// Disclaimer of Liability\n// The authors of this software disclaim all liability for any damages, including incidental, consequential, special, or indirect damages, arising from the use or inability to use this software.\n\nconst {\n  app,\n  BrowserWindow\n} = __webpack_require__(/*! electron */ \"electron\");\nconst createWindow = () => {\n  const win = new BrowserWindow({\n    width: 800,\n    height: 600,\n    webPreferences: {\n      nodeIntegration: true,\n      contextIsolation: false\n    }\n  });\n  win.loadFile('./public/index.html');\n};\napp.whenReady().then(() => {\n  createWindow();\n  app.on('activate', () => {\n    if (BrowserWindow.getAllWindows().length === 0) createWindow();\n  });\n});\napp.on('window-all-closed', () => {\n  if (process.platform !== 'darwin') app.quit();\n});\n\n//# sourceURL=webpack://auto-prophet/./src/main.cjs?");
 
 /***/ })
 
@@ -61,7 +61,10 @@ module.exports = require("electron");
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/main.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/main.cjs");
+/******/ 	var __webpack_export_target__ = exports;
+/******/ 	for(var i in __webpack_exports__) __webpack_export_target__[i] = __webpack_exports__[i];
+/******/ 	if(__webpack_exports__.__esModule) Object.defineProperty(__webpack_export_target__, "__esModule", { value: true });
 /******/ 	
 /******/ })()
 ;

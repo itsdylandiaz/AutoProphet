@@ -6,6 +6,7 @@
 
 
 import React, { Component } from "react";
+const {pymport, proxify} = require("pymport");
 
 class BuyReport extends Component {
     constructor(props){
@@ -46,24 +47,24 @@ class BuyReport extends Component {
                 <h2>Buy Report</h2>
 
                 <form onSubmit={this.handleSubmit}>
-                    <label for="CIKNum">CIK Number: </label>
+                    <label htmlFor="CIKNum">CIK Number: </label>
                     <input type="text" id="CIKNum" name="CIKNum" value={this.state.cik} onChange={this.handleChangeCIK}/><br/><br/>
 
                     <input type="radio" id="10-K" name="filingType" value="10-K" checked={this.state.form === "10-K"} onChange={this.handleChangeForm}/>
-                    <label for="10-K">10-K</label><br/>
+                    <label htmlFor="10-K">10-K</label><br/>
                     <input type="radio" id="10-Q" name="filingType" value="10-Q" checked={this.state.form === "10-Q"}onChange={this.handleChangeForm}/>
-                    <label for="10-Q">10-Q</label><br/><br/>
+                    <label htmlFor="10-Q">10-Q</label><br/><br/>
 
-                    <label for="start">Start Date: </label>
+                    <label htmlFor="start">Start Date: </label>
                     <input type="date" id="start" name="start" value={this.state.start} onChange={this.handleChangeStart}/><br/>
 
-                    <label for="end">End Date: </label>
+                    <label htmlFor="end">End Date: </label>
                     <input type="date" id="end" name="end" value={this.state.end} onChange={this.handleChangeEnd}/><br/><br/>
 
                     <input type="submit" value="Submit"/>
                 </form>
 
-                <output form="companyForm" id="out" name="out" for="CIKNum"></output>
+                <output form="companyForm" id="out" name="out" htmlFor="CIKNum"></output>
 
             </div>
         );

@@ -15,7 +15,7 @@ import {
 } from "react-router-dom";
 
 import Analysis from "./Analysis";
-import BuyReport from "./BuyReport";
+import BuyReport from "./BuyReport.jsx";
 
 class Home extends Component {
     render() {
